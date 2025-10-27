@@ -2,6 +2,10 @@
 This is a collection of different adapter PCBs to plug SMT parts into DIP sockets, and/or to use a writable part in place of an originally read-only part.
 Generally to use a newer PLCC, SOIC, or TSOP EEPROM or Flash part to replace a DIP mask ROM or UV EPROM in a vintage computer.
 
+Most of the PCBs have holes that are intentionally too small to use standard pin headers for the DIP legs.  
+Here is how to do the legs: https://gist.github.com/bkw777/52d85d89eeff8445cc667685d05ea94d  
+It's less convenient than generic pin headers but the point is for the legs to be as thin as the DIP legs they are emulating so as not to damage sockets, and to have the replacement "chip" be low profile without the big isulator & shoulder block taking up space so the replacement chip fits in more places.  
+
 ## 28C256_to_27C256
 ![](out/28C256_to_27C256.jpg)  
 ![](out/28C256_to_27C256.svg)
@@ -216,7 +220,10 @@ To install:
 ![](out/TRS-80_100_200_Option_ROM_programming_adapter.jpg)  
 ![](out/TRS-80_100_200_Option_ROM_programming_adapter.svg)
 
-If you have a Molex 78805 socket and are willing to consume it for this, this provides an adapter to allow reading Model 100/200 Option ROMs in an eprom programmer without having to bend any pins or desolder any chips.
+If you have a Molex 8878-28S socket, this provides a pinout adapter for the non-standard TANDY pinout to a standard 27C256 pinout to allow reading Model 100/200 Option ROMs in an eprom programmer without having to bend the pins or desolder the chip.  
+The sockets haven't been made for decades, but sometimes they turn up on [ebay](ebay.com/sch/?_nkw=molex%208878-28S) and other places.  
+Search terms: The socket is physically marked "Molex 8878-28S".  
+The [datasheet](datasheets/015299282_sd_corrected.pdf) says the part number is 78805-0518 or 15-29-9282.  
 
 The jumpers provide 5 different ways to handle pin #23 in the socket.  
 
@@ -228,7 +235,7 @@ Most commercial option roms are a 27C256 in some form of pinout adapter, and the
 The jumpers allow pin 23 in the Molex socket to be connected to the programmer pins: GND, VCC, VPP, /CE, or nothing.  
 * For the molded plastic roms with LH53562x part numbers (MS MultiPLAN, Ineractive Solutions), use the /CE position.  
 * For most 3rd party roms constructed of a ceramic 27C256 with a pinout adapter, use either /CE, or remove the jumper entirely.  
-* The other options are for possible future use with other new custom option rom modules like [Teeprom](httpsgithub.com/bkw777/Teeprom) or [M4ROM](https://github.com/bkw777/M4ROM/) etc, that might be specifically designed to use that otherwise un-used pin for VPP or /WE etc. Currently no such modules wired like that. So generally just leave it on /CE.
+* The other options are for possible future use with other new custom option rom modules like [Teeprom](httpsgithub.com/bkw777/Teeprom) or [M4ROM](https://github.com/bkw777/M4ROM/) etc, that might be specifically designed to use that otherwise un-used pin for VPP or /WE etc. Currently no such modules are wired like that, so generally just leave it on /CE.
 
 ## DS1000
 ![](out/DS1000_DIP14.jpg)
